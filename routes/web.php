@@ -1,5 +1,6 @@
 <?php
 
+use App\Articles\ArticlesRepository;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +13,14 @@
 */
 
 Route::get('/', 'HomeController@articles')->name('articles');
+
+Route::get('search', function (ArticlesRepository $repository) {
+    $articles = $repository->search(request('q'));
+
+    return view('welcome', [
+        'articles' => $articles,
+    ]);
+});
 
 Auth::routes();
 
