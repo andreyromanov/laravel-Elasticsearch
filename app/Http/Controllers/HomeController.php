@@ -33,4 +33,22 @@ class HomeController extends Controller
 
         return view('welcome', ['articles' => $articles]);
     }
+
+    public function Showarray()
+    {
+        $objects = [];
+        for ($i=0; $i<2; $i++) {
+            // i'll just makeup some values for a,b,c,d here since i don't know
+            // how you are assigning them
+            $objects[] = (object) [
+                "title" => $i,
+                "body" => $i * 2,
+                "slug" => $i * 5,
+                "status" =>0
+            ];
+        }
+        //print_r($objects);
+
+        return json_encode($objects);
+    }
 }

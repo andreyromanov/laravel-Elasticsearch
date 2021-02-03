@@ -25,3 +25,5 @@ Route::get('search', function (ArticlesRepository $repository) {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/Showarray', 'HomeController@Showarray');
